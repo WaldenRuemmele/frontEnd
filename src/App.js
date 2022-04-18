@@ -2,6 +2,9 @@ import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Store from "./stores.js";
 import StoreID from "./stores.js";
+import StoresIDNew from "./stores.js";
+import StoresIDItemID from "./stores.js";
+
 
 function App() {
 
