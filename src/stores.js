@@ -42,6 +42,22 @@ export function StoresIDItem(){
 
 export function StoresIDNew(){
 
+  const { store_id } = useParams();
+
+  return(
+  <form>
+    <label>
+      Name:
+      <input type="text" name="name" />
+      Fridge Recommended:
+      <input type="radio" name="option" value="option1" />
+      <input type="radio" name="option" value="option1" />
+    </label>
+    <input type="submit" value="Submit" />
+  </form>
+  )
+
+
 }
 
 export function StoresIDItemID(){
