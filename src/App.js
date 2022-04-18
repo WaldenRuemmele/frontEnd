@@ -11,8 +11,8 @@ function App() {
         <Routes>
           <Route path="/stores" element={<Store/>}/>
           <Route path="/stores/:store_id" element={<StoreID/>}/>
-          <Route path="/stores/:store_id/items/new" element={<Store/>}/>
-          <Route path="/stores/:store_id/items/:item_id" element={<Store/>}/>
+          <Route path="/stores/:store_id/items/new" element={<StoresIDNew/>}/>
+          <Route path="/stores/:store_id/items/:item_id" element={<StoresIDItemID/>}/>
         </Routes>
       </BrowserRouter>
     </>
