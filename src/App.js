@@ -9,6 +9,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/stores" element={<Store/>}/>
+          <Route path="/stores/:store_id" element=
         </Routes>
       </BrowserRouter>
     </>
