@@ -1,7 +1,11 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Store from "./stores.js";
-import StoresID from "./stores.js";
+
+import { StoresIDItem } from "./stores.js";
+import { StoresIDNew } from "./stores.js";
+import { StoresIDItemID } from "./stores.js";
+
 
 function App() {
 
@@ -10,9 +14,12 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/stores" element={<Store/>}/>
-          <Route path="/stores/:store_id" element={<StoresID/>}/>
-          <Route path="/stores/:store_id/items/new" element={<Store/>}/>
-          <Route path="/stores/:store_id/items/:item_id" element={<Store/>}/>
+
+
+          <Route path="/stores/:store_id" element={<StoresIDItem/>}/>
+          <Route path="/stores/:store_id/items/new" element={<StoresIDNew/>}/>
+          <Route path="/stores/:store_id/items/:item_id" element={<StoresIDItemID/>}/>
+
         </Routes>
       </BrowserRouter>
     </>
