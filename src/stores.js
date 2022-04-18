@@ -24,8 +24,20 @@ export function Store() {
   );
 };
 
-export function StoresID(){
+export function StoresIDItem(){
+  
+  var [stores, setStores] = useState(
+    
+  );
 
+
+  return (
+    <div>
+      <p>
+        {stores}
+      </p>
+    </div>
+  );
 }
 
 export function StoresIDNew(){
