@@ -63,10 +63,10 @@ export function StoresIDNew(){
       let id = info.get("id")
       const request = {
         method: 'PUT',
-        body: value
+        body: JSON.stringify(value)
       };
       fetch(`http://localhost:8000/stores/${store_id}/items/${id}`,request);
-      console.log({value});
+      console.log({request});
   }
 
   return(
