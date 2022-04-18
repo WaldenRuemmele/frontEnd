@@ -2,6 +2,13 @@ import { useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
+const styleVar = {
+  color: "white",
+  backgroundColor: "black",
+  textAlign: "center",
+  padding: "10px",
+  fontFamily: "Arial"
+};
 
 export function Store() {
   const [stores, setStore] = useState([]);
@@ -47,20 +54,41 @@ export function StoresIDItem(){
 }
 
 export function StoresIDNew(){
-
   const { store_id } = useParams();
 
+  function submit(event){
+      event.preventDefault();
+      const info = new FormData(event.target);
+      const value = Object.fromEntries(info.entries());
+      let id = info.get("id")
+      const request = {
+        method: 'PUT',
+        body: value
+      };
+      fetch(`http://localhost:8000/stores/${store_id}/items/${id}`,request);
+      console.log({value});
+  }
+
   return(
-  <form>
-    <label>
-      Name:
-      <input type="text" name="name" />
-      Fridge Recommended:
-      <input type="radio" name="option" value="option1" />
-      <input type="radio" name="option" value="option1" />
-    </label>
-    <input type="submit" value="Submit" />
-  </form>
+  <div style={styleVar}>
+    <form onSubmit={submit}>
+      <label>
+        Name:
+        <input type="text" name="name" />
+        <br/>
+        Quantity:
+        <input type="number" name="quantity" />
+        <br/>
+        Price:
+        <input type="number" name="price" />
+        <br/>
+        ID:
+        <input type="number" name="id" />
+        <br/>
+      </label>
+      <input type="submit" value="Submit" />
+    </form>
+  </div>
   )
 
 
