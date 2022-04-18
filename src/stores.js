@@ -3,7 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 
-function Store() {
+export function Store() {
   const { storeID } = useParams();
   const [stores, setStore] = useState([]);
 
@@ -25,4 +25,9 @@ function Store() {
   );
 };
 
+export function StoresID(){
+
+}
+
 export default Store;
+
