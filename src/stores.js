@@ -11,7 +11,7 @@ export function Store() {
     fetch(`http://localhost:8000/stores`)
       .then((body) => body.json())
       .then((json) => setStore(() => [...json]));
-  });
+  }, []);
   
   console.log(stores);
 
