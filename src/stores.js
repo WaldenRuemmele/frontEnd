@@ -25,18 +25,24 @@ export function Store() {
 };
 
 export function StoresIDItem(){
-  
-  var [stores, setStores] = useState(
-    
-  );
+  let {store_id} = useParams();
+  const [items, setItems] = useState([]);
 
+  // render all stores
+  useEffect(() => {
+    fetch(`http://localhost:8000/stores/${store_id}/items`)
+      .then((body) => body.json())
+      .then((json) => setItems(() => [...json]));
+  }, [store_id]);
+  
+  console.log(items);
 
   return (
-    <div>
-      <p>
-        {stores}
-      </p>
-    </div>
+    <>
+      <h1>
+         <div>{items.map((item) => (<p key={item._id}>{item.name}</p>))}</div>
+      </h1>
+    </>
   );
 }
 
