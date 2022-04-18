@@ -25,7 +25,17 @@ export function Store() {
 };
 
 export function StoresID(){
+  let {store_id } = useParams();
+  
+  console.log(store_id)
 
+  return (
+    <>
+      <h1>
+         {store_id}
+      </h1>
+    </>
+  );
 }
 
 export function StoresIDNew(){
