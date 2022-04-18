@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 
 
 export function Store() {
-  const { storeID } = useParams();
   const [stores, setStore] = useState([]);
 
   // render all stores
@@ -12,7 +11,7 @@ export function Store() {
     fetch(`http://localhost:8000/stores`)
       .then((body) => body.json())
       .then((json) => setStore(() => [...json]));
-  }, [storeID]);
+  });
   
   console.log(stores)
 
@@ -26,6 +25,14 @@ export function Store() {
 };
 
 export function StoresID(){
+
+}
+
+export function StoresIDNew(){
+
+}
+
+export function StoresIDItemID(){
 
 }
 
