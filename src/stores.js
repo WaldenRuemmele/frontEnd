@@ -11,14 +11,14 @@ export function Store() {
     fetch(`http://localhost:8000/stores`)
       .then((body) => body.json())
       .then((json) => setStore(() => [...json]));
-  });
+  }, []);
   
-  console.log(stores)
+  console.log(stores);
 
   return (
     <>
       <h1>
-         <div>{stores.map((store) => (<p>{store.name}</p>))}</div>
+         <div>{stores.map((store) => (<p key={store._id}>{store.name}</p>))}</div>
       </h1>
     </>
   );
