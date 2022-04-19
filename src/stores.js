@@ -60,12 +60,13 @@ export function StoresIDNew(){
       event.preventDefault();
       const info = new FormData(event.target);
       const value = Object.fromEntries(info.entries());
-      let id = info.get("_id")
+      let id = parseInt(info.get("_id"));
       const request = {
         method: 'PUT',
-        mode: 'cors',
-        headers: {"Content-Type": "application/json"},
-        body: value
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(value)
       };
       fetch(`http://localhost:8000/stores/${store_id}/items/${id}`,request);
       console.log({request});
