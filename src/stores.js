@@ -60,10 +60,12 @@ export function StoresIDNew(){
       event.preventDefault();
       const info = new FormData(event.target);
       const value = Object.fromEntries(info.entries());
-      let id = info.get("id")
+      let id = info.get("_id")
       const request = {
         method: 'PUT',
-        body: JSON.stringify(value)
+        mode: 'cors',
+        headers: {"Content-Type": "application/json"},
+        body: value
       };
       fetch(`http://localhost:8000/stores/${store_id}/items/${id}`,request);
       console.log({request});
@@ -83,7 +85,7 @@ export function StoresIDNew(){
         <input type="number" name="price" />
         <br/>
         ID:
-        <input type="number" name="id" />
+        <input type="number" name="_id" />
         <br/>
       </label>
       <input type="submit" value="Submit" />
