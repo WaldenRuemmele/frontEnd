@@ -63,6 +63,7 @@ export function StoresIDNew(){
       let id = parseInt(info.get("_id"));
       const request = {
         method: 'PUT',
+        mode: 'cors',
         headers: {
           'Content-Type': 'application/json'
         },
@@ -98,7 +99,24 @@ export function StoresIDNew(){
 }
 
 export function StoresIDItemID(){
+  let {store_id,item_id} = useParams();
+  const [item, setItem] = useState({});
 
+  // render all stores
+  useEffect(() => {
+    fetch(`http://localhost:8000/stores/${store_id}/items/${item_id}`)
+      .then((body) => body.json())
+      .then((json) => setItem(() => json));
+  }, [store_id,item_id]);
+
+  return(
+    <div>
+      <p>The requested item: {item.name}</p>
+      <p>The price: {item.price}</p>
+      <p>The quantity remaining: {item.quantity}</p>
+      <p>The item's ID: {item._id}</p>
+    </div>
+  )
 }
 
 export default Store;

@@ -13,9 +13,8 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
+          
           <Route path="/stores" element={<Store/>}/>
-
-
           <Route path="/stores/:store_id" element={<StoresIDItem/>}/>
           <Route path="/stores/:store_id/items/new" element={<StoresIDNew/>}/>
           <Route path="/stores/:store_id/items/:item_id" element={<StoresIDItemID/>}/>
